@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Home Page  */
+.navbar {
+	display: flex;
+	background-color: red;
+	line-height: 15px;
+	position: sticky;
+}
+.navbar-items {
+	margin: 20px;
+	background-color: white;
+}
+
+.about-section {
+	display: flex;
+}
+.about-us {
+}
+
+.project-section {
+	display: flex;
+}
+.project-samples {
+}
