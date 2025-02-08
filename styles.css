@@ -4,17 +4,39 @@
 }
 
 /* Home Page  */
+/* Nav 1  */
 .navbar {
 	display: flex;
-	background-color: red;
-	line-height: 15px;
-	position: sticky;
+	justify-content: flex-end;
+	line-height: 25px;
+	text-align: center;
+	position: relative;
 }
 .navbar-items {
-	margin: 20px;
-	background-color: white;
+	margin: 30px;
+	font-size: 25px;
 }
 
+/* Nav 2  */
+.navbar2 {
+	display: flex;
+	justify-content: flex-end;
+	background-color: rgba(255, 0, 0, 0.7);
+	line-height: 25px;
+	text-align: center;
+	position: relative;
+	display: none;
+}
+.navbar-items2 {
+	margin: 15px;
+	font-size: 20px;
+}
+
+.logo {
+	position: absolute;
+	top: 2px;
+	left: 20px;
+}
 .about-section {
 	display: flex;
 }
