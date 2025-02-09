@@ -142,9 +142,63 @@ footer h3 {
 }
 
 /* About Us Page  */
-.mission {
-	display: flex;
+.about {
+	height: 100vh;
+	width: 100%;
+	background-color: aqua;
+	display: none;
+}
+.about h2 {
+	text-align: center;
+	font-size: 30px;
+	margin: 15px;
+}
+.about p {
+	text-align: center;
+	line-height: 40px;
 }
 
+.mission {
+	display: flex;
+	height: 100vh;
+	display: none;
+}
 .missions {
+	flex: 50%;
+	background-color: red;
+}
+.missions h2 {
+	text-align: center;
+	font-size: 30px;
+	margin: 15px;
+}
+.missions p {
+	text-align: center;
+	padding: 20px;
+	line-height: 35px;
+}
+.missions-pic {
+	background-color: yellow;
+}
+
+.vision {
+	display: flex;
+	height: 100vh;
+}
+.visions {
+	flex: 50%;
+	background-color: green;
+}
+.visions-pic {
+	background-color: blue;
+}
+.visions h2 {
+	text-align: center;
+	font-size: 30px;
+	margin: 15px;
+}
+.visions p {
+	text-align: center;
+	padding: 20px;
+	line-height: 35px;
 }
