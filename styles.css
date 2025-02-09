@@ -202,3 +202,30 @@ footer h3 {
 	padding: 20px;
 	line-height: 35px;
 }
+
+/* Projects  */
+.projects h1 {
+	text-align: center;
+}
+.project h2 {
+	text-align: center;
+	color: white;
+}
+.project {
+	background-color: black;
+	margin: 10px;
+	padding: 7px;
+	border-radius: 10px;
+}
+.projectz {
+	display: flex;
+	flex-wrap: wrap;
+}
+.projectz .one {
+	flex: 30%;
+	margin: 5px;
+	height: 200px;
+	background-color: yellow;
+	border-radius: 10px;
+	cursor: pointer;
+}
