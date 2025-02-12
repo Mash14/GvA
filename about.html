@@ -99,6 +99,29 @@
 		<!-- Details -->
 		<div class="details"></div>
 
+		<!-- Contact bot -->
+		<button class="contact-button" id="contact-button" onclick="openModal()">
+			Contact
+		</button>
+		<!-- Contact Modal -->
+		<div class="modal" id="contactModal">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<div class="chat-box" id="chatBox">
+				<div class="chat-message bot-message">
+					Bot: Hello! How can I help you today?
+				</div>
+			</div>
+			<input
+				type="text"
+				id="userInput"
+				class="chat-input"
+				placeholder="Type your message..."
+				onkeypress="handleKeyPress(event)"
+			/>
+			<button onclick="sendMessage()" class="bot-button">Send</button>
+			<button onclick="goToContactPage()" class="bot-button">Contact Us</button>
+		</div>
+
 		<!-- Footer Section  -->
 		<footer>
 			<div class="footer-upper"></div>

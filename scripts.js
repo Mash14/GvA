@@ -99,3 +99,51 @@ function resetAutoSlide() {
 	clearInterval(autoSlide);
 	autoSlide = setInterval(nextSlide, 5000);
 }
+
+// Contact Bot
+let chatIndex = 0;
+const chatMessages = [
+	"What do you need help with?",
+	"Would you like to speak with an agent?",
+	"You can visit our contact page to send an email.",
+];
+
+function openModal() {
+	document.getElementById("contactModal").style.display = "block";
+	document.getElementById("contact-button").style.display = "none";
+}
+
+function closeModal() {
+	document.getElementById("contactModal").style.display = "none";
+	document.getElementById("contact-button").style.display = "block";
+}
+
+function sendMessage() {
+	let userInput = document.getElementById("userInput").value;
+	if (userInput.trim() !== "") {
+		let chatBox = document.getElementById("chatBox");
+		chatBox.innerHTML += `<div class='chat-message user-message'>You: ${userInput}</div>`;
+		document.getElementById("userInput").value = "";
+		chatBox.scrollTop = chatBox.scrollHeight;
+		setTimeout(nextQuestion, 1000);
+	}
+}
+
+function handleKeyPress(event) {
+	if (event.key === "Enter") {
+		sendMessage();
+	}
+}
+
+function nextQuestion() {
+	if (chatIndex < chatMessages.length) {
+		let chatBox = document.getElementById("chatBox");
+		chatBox.innerHTML += `<div class='chat-message bot-message'>Bot: ${chatMessages[chatIndex]}</div>`;
+		chatIndex++;
+		chatBox.scrollTop = chatBox.scrollHeight;
+	}
+}
+
+function goToContactPage() {
+	window.location.href = "contact.html";
+}
