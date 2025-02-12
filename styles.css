@@ -187,17 +187,21 @@ footer h3 {
 .about {
 	height: 100vh;
 	width: 100%;
-	background-color: aqua;
-	/* display: none; */
+	background-image: url("/images/about.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .about h2 {
 	text-align: center;
 	font-size: 30px;
 	margin: 15px;
+	color: white;
 }
 .about p {
 	text-align: center;
 	line-height: 40px;
+	color: white;
 }
 
 .mission {
@@ -220,7 +224,10 @@ footer h3 {
 	line-height: 35px;
 }
 .missions-pic {
-	background-color: yellow;
+	background-image: url("/images/missioni.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .vision {
@@ -232,7 +239,10 @@ footer h3 {
 	background-color: green;
 }
 .visions-pic {
-	background-color: blue;
+	background-image: url("/images/vision.jpg"); /* Replace with your image URL */
+	background-size: cover; /* Cover the entire viewport */
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat;
 }
 .visions h2 {
 	text-align: center;
@@ -251,23 +261,36 @@ footer h3 {
 }
 .project h2 {
 	text-align: center;
-	color: white;
+	color: black;
 }
 .project {
-	background-color: black;
+	/* background-color: black; */
+	box-shadow: 2px 2px 2px black, -2px -2px 2px black;
 	margin: 10px;
 	padding: 7px;
 	border-radius: 10px;
+	margin-top: 50px;
 }
 .projectz {
 	display: flex;
 	flex-wrap: wrap;
+	/* box-shadow: 2px 2px 2px black, -2px -2px 2px black; */
+	/* box-shadow: -2px -2px 2px black; */
+	border-radius: 10px;
+	padding: 20px;
+	margin: 20px;
 }
 .projectz .one {
 	flex: 30%;
 	margin: 5px;
-	height: 200px;
-	background-color: yellow;
+	max-height: 300px;
+	/* background-color: yellow; */
 	border-radius: 10px;
 	cursor: pointer;
+	box-shadow: 2px 2px 2px black, -2px -2px 2px black;
+}
+.one > img {
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
 }
