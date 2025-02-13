@@ -147,3 +147,23 @@ function nextQuestion() {
 function goToContactPage() {
 	window.location.href = "contact.html";
 }
+
+//// Image Modal
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".close-img");
+const images = document.querySelectorAll(".img");
+
+// Open modal when clicking an image
+images.forEach((img) => {
+	img.addEventListener("click", function () {
+		modal.style.display = "flex";
+		modalImg.src = this.src;
+	});
+});
+
+// Close modal when clicking "X" or outside the image
+closeBtn.addEventListener("click", () => (modal.style.display = "none"));
+modal.addEventListener("click", (e) => {
+	if (e.target === modal) modal.style.display = "none";
+});
