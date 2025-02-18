@@ -167,3 +167,90 @@ closeBtn.addEventListener("click", () => (modal.style.display = "none"));
 modal.addEventListener("click", (e) => {
 	if (e.target === modal) modal.style.display = "none";
 });
+
+///// Send Email
+// Initialize EmailJS when the page loads
+window.onload = function () {
+	emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+};
+
+function sendEmail() {
+	console.log("Send email function triggered."); // Debugging
+
+	// Get form values
+	const name = document.getElementById("name").value.trim();
+	const email = document.getElementById("email").value.trim();
+	const subject = document.getElementById("subject").value.trim();
+	const message = document.getElementById("message").value.trim();
+
+	let isValid = true;
+
+	// Validation
+	if (name.length < 3) {
+		document.getElementById("name-error").innerText =
+			"Name must be at least 3 characters.";
+		isValid = false;
+	} else {
+		document.getElementById("name-error").innerText = "";
+	}
+
+	if (!validateEmail(email)) {
+		document.getElementById("email-error").innerText =
+			"Please enter a valid email address.";
+		isValid = false;
+	} else {
+		document.getElementById("email-error").innerText = "";
+	}
+
+	if (subject.length < 5) {
+		document.getElementById("subject-error").innerText =
+			"Subject must be at least 5 characters.";
+		isValid = false;
+	} else {
+		document.getElementById("subject-error").innerText = "";
+	}
+
+	if (message.length < 10) {
+		document.getElementById("message-error").innerText =
+			"Message must be at least 10 characters.";
+		isValid = false;
+	} else {
+		document.getElementById("message-error").innerText = "";
+	}
+
+	if (!isValid) return;
+
+	// Show loading spinner and disable button
+	document.getElementById("loading-spinner").style.display = "block";
+	document.getElementById("btn-text").innerText = "Sending...";
+	document.querySelector("button").disabled = true;
+
+	const params = { name, email, subject, message };
+
+	// Send email
+	emailjs
+		.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+		.then(() => {
+			document.getElementById("status-message").innerText =
+				"Message sent successfully!";
+			document.getElementById("status-message").style.color = "green";
+			document.getElementById("contact-form").reset();
+		})
+		.catch(() => {
+			document.getElementById("status-message").innerText =
+				"Error sending message.";
+			document.getElementById("status-message").style.color = "red";
+		})
+		.finally(() => {
+			// Hide loading spinner and enable button
+			document.getElementById("loading-spinner").style.display = "none";
+			document.getElementById("btn-text").innerText = "Send Message";
+			document.querySelector("button").disabled = false;
+		});
+}
+
+// Email validation function
+function validateEmail(email) {
+	const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+	return re.test(email);
+}

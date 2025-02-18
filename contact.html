@@ -7,28 +7,79 @@
 		<title>GvA Designs - Contact</title>
 	</head>
 	<body>
-		<!-- Nav 1  -->
-		<nav class="navbar" id="nav1" style="position: relative">
-			<a href="/home.html" class="navbar-items logo" data-link>Logo</a>
-			<a href="/home.html" class="navbar-items" data-link>Home</a>
-			<a href="/about.html" class="navbar-items" data-link>About</a>
-			<a href="/projects.html" class="navbar-items" data-link>Projects</a>
-			<a href="/contact.html" class="navbar-items" data-link>Contact</a>
-		</nav>
-		<!-- Nav 2  -->
-		<nav class="navbar2" id="nav2">
-			<a href="/home.html" class="navbar-items2 logo">Logo</a>
-			<a href="/home.html" class="navbar-items2">Home</a>
-			<a href="/about.html" class="navbar-items2">About</a>
-			<a href="/projects.html" class="navbar-items2">Projects</a>
-			<a href="/contact.html" class="navbar-items2">Contact</a>
-		</nav>
+		<div class="cont">
+			<!-- Nav 1  -->
+			<nav class="navbar" id="nav1" style="position: relative">
+				<a href="/home.html" class="navbar-items logo" data-link>Logo</a>
+				<a href="/home.html" class="navbar-items" data-link>Home</a>
+				<a href="/about.html" class="navbar-items" data-link>About</a>
+				<a href="/projects.html" class="navbar-items" data-link>Projects</a>
+				<a href="/contact.html" class="navbar-items" data-link>Contact</a>
+			</nav>
+			<!-- Nav 2  -->
+			<nav class="navbar2" id="nav2">
+				<a href="/home.html" class="navbar-items2 logo">Logo</a>
+				<a href="/home.html" class="navbar-items2">Home</a>
+				<a href="/about.html" class="navbar-items2">About</a>
+				<a href="/projects.html" class="navbar-items2">Projects</a>
+				<a href="/contact.html" class="navbar-items2">Contact</a>
+			</nav>
 
-		<!-- Contact -->
-		<h2>CONTACT</h2>
+			<!-- Contact -->
+			<div class="contact-container">
+				<h2>Contact Us</h2>
+				<form id="contact-form">
+					<input
+						type="text"
+						id="name"
+						name="name"
+						placeholder="Name..."
+						required
+					/>
+					<small class="error" id="name-error"></small>
 
+					<input
+						type="email"
+						id="email"
+						name="email"
+						placeholder="Email..."
+						required
+					/>
+					<small class="error" id="email-error"></small>
+
+					<input
+						type="text"
+						id="subject"
+						name="subject"
+						placeholder="Subject..."
+						required
+					/>
+					<small class="error" id="subject-error"></small>
+
+					<textarea
+						id="message"
+						name="message"
+						placeholder="Message..."
+						required
+					></textarea>
+					<small class="error" id="message-error"></small>
+
+					<button type="button" class="send-email" onclick="sendEmail()">
+						<span id="btn-text">Send Message</span>
+						<div id="loading-spinner"></div>
+					</button>
+				</form>
+				<p id="status-message"></p>
+			</div>
+		</div>
 		<!-- Footer Section  -->
-		<footer></footer>
+		<footer>
+			<div class="footer-upper"></div>
+
+			<h3>GvA Designs@2025</h3>
+		</footer>
+
+		<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 		<script src="/scripts.js"></script>
 	</body>
 </html>
