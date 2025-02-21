@@ -9,16 +9,54 @@ window.addEventListener("scroll", function () {
 		navbar2.style.transition = "all 1s ease-in-out";
 	} else if (window.scrollY > 10) {
 		let navbar1 = document.getElementById("nav1");
-		navbar1.style.top = "-60px";
+		navbar1.style.top = "-75px";
 	} else {
 		let navbar1 = document.getElementById("nav1");
 		navbar1.style.top = "0";
 		navbar1.style.transition = "all 0.5s ease-in-out";
 		let navbar2 = document.getElementById("nav2");
-		navbar2.style.top = "-60px";
+		navbar2.style.top = "-75px";
 		navbar2.style.transition = "all 0.5s ease-in-out";
 	}
 });
+// Add active
+document.addEventListener("DOMContentLoaded", function () {
+	var currentPage = window.location.pathname; // Get current page URL
+	var navLinks = document.querySelectorAll(".navbar-items");
+
+	navLinks.forEach((link) => {
+		if (link.getAttribute("href") === currentPage) {
+			link.classList.add("active"); // Add 'active' class to the matching link
+		}
+	});
+});
+
+////navbar toggle
+function toggleMenu() {
+	let navLinks = document.getElementById("navLinks");
+	let menuToggle = document.getElementById("menuToggle");
+
+	// Toggle active class to show/hide menu
+	navLinks.classList.toggle("active");
+	menuToggle.classList.toggle("active");
+
+	// Delay items appearing when menu opens
+	const navItems = document.querySelectorAll(".navbar-items");
+	if (navLinks.classList.contains("active")) {
+		navItems.forEach((item, index) => {
+			item.style.transitionDelay = `${index * 0.4}s`;
+			item.style.opacity = "1";
+			item.style.transform = "translateY(0)";
+		});
+	} else {
+		// Hide items when menu closes
+		navItems.forEach((item) => {
+			item.style.transitionDelay = "0s";
+			item.style.opacity = "0";
+			item.style.transform = "translateY(-20px)";
+		});
+	}
+}
 
 // Slider
 let currentIndex = 0;
@@ -122,7 +160,7 @@ function sendMessage() {
 	let userInput = document.getElementById("userInput").value;
 	if (userInput.trim() !== "") {
 		let chatBox = document.getElementById("chatBox");
-		chatBox.innerHTML += `<div class='chat-message user-message'>You: ${userInput}</div>`;
+		chatBox.innerHTML += `<div class='chat-message user-message'>You : ${userInput}</div>`;
 		document.getElementById("userInput").value = "";
 		chatBox.scrollTop = chatBox.scrollHeight;
 		setTimeout(nextQuestion, 1000);
@@ -138,7 +176,7 @@ function handleKeyPress(event) {
 function nextQuestion() {
 	if (chatIndex < chatMessages.length) {
 		let chatBox = document.getElementById("chatBox");
-		chatBox.innerHTML += `<div class='chat-message bot-message'>Bot: ${chatMessages[chatIndex]}</div>`;
+		chatBox.innerHTML += `<div class='chat-message bot-message'>GvA : ${chatMessages[chatIndex]}</div>`;
 		chatIndex++;
 		chatBox.scrollTop = chatBox.scrollHeight;
 	}
@@ -254,3 +292,22 @@ function validateEmail(email) {
 	const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	return re.test(email);
 }
+
+// document.addEventListener("DOMContentLoaded", function () {
+// 	const menuToggle = document.getElementById("menuToggle");
+// 	const navLinks = document.querySelector(".nav-links");
+// 	const navItems = document.querySelectorAll(".nav-links a");
+
+// 	menuToggle.addEventListener("click", function () {
+// 		navLinks.classList.toggle("active");
+// 		menuToggle.classList.toggle("active");
+
+// 		// Animate menu items one by one
+// 		navItems.forEach((item, index) => {
+// 			setTimeout(() => {
+// 				item.style.opacity = "1";
+// 				item.style.transform = "translateY(0)";
+// 			}, index * 150);
+// 		});
+// 	});
+// });
