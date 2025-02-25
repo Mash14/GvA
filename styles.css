@@ -372,23 +372,24 @@ h2.projo {
 .about {
 	height: 100vh;
 	width: 100%;
-	background-image: url("/images/about.jpg");
+	background-image: url("/images/aboutuss.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	padding-top: 95px;
 }
 .about h2 {
 	text-align: center;
-	font-size: 30px;
+	font-size: 50px;
 	margin: 15px;
-	color: white;
+	color: black;
 }
 .about p {
 	text-align: center;
 	line-height: 40px;
-	color: white;
-	padding: 50px 200px;
+	color: black;
+	padding: 30px 200px;
 }
 
 .mission {
@@ -398,17 +399,24 @@ h2.projo {
 }
 .missions {
 	flex: 50%;
-	background-color: red;
+	/* background-color: red; */
+	background-image: url("/images/about.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	/* background-attachment: fixed; */
 }
 .missions h2 {
 	text-align: center;
 	font-size: 30px;
 	margin: 15px;
+	color: white;
 }
 .missions p {
 	text-align: center;
 	padding: 20px;
 	line-height: 35px;
+	color: white;
 }
 .missions-pic {
 	background-image: url("/images/missioni.jpg");
@@ -423,7 +431,12 @@ h2.projo {
 }
 .visions {
 	flex: 50%;
-	background-color: green;
+	/* color: white; */
+	background-image: url("/images/visionss.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 .visions-pic {
 	background-image: url("/images/vision.jpg"); /* Replace with your image URL */
@@ -440,6 +453,17 @@ h2.projo {
 	text-align: center;
 	padding: 20px;
 	line-height: 35px;
+}
+.details {
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+}
+.details .time {
+	padding: 50px;
+}
+.details .time li {
+	list-style-type: square;
 }
 
 /* Projects  */
@@ -624,11 +648,23 @@ textarea {
 		padding: 30px 30px;
 		line-height: 30px;
 	}
+	.missions p {
+		line-height: 30px;
+	}
+	.visions p {
+		line-height: 30px;
+	}
 }
 
 @media only screen and (max-width: 900px) {
 	.about-us p {
 		line-height: 21px;
+	}
+	.missions p {
+		line-height: 25px;
+	}
+	.visions p {
+		line-height: 25px;
 	}
 }
 
@@ -645,6 +681,13 @@ textarea {
 	}
 	.project-section a {
 		max-height: 250px;
+	}
+	/* About Page  */
+	.missions p {
+		line-height: 20px;
+	}
+	.visions p {
+		line-height: 20px;
 	}
 }
 @media only screen and (max-width: 670px) {
@@ -751,6 +794,15 @@ textarea {
 		display: block;
 		height: 100vh;
 	}
+	.missions p {
+		line-height: 35px;
+	}
+	.visions p {
+		line-height: 35px;
+	}
+	.details .time {
+		padding: 30px;
+	}
 
 	/* Projects Page  */
 	.projectz {
@@ -759,14 +811,46 @@ textarea {
 }
 
 @media only screen and (max-width: 540px) {
+	/* About Page  */
+	.about p {
+		line-height: 21px;
+	}
 	.about-us p {
 		line-height: 20px;
+	}
+	.missions p {
+		line-height: 30px;
+	}
+	.visions p {
+		line-height: 30px;
+	}
+	.details {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
 @media only screen and (max-width: 400px) {
+	/* Home Page  */
 	.project-section a {
 		flex: 100%;
+	}
+	/* About Page  */
+	.about p {
+		line-height: 15px;
+	}
+	.missions p {
+		line-height: 25px;
+	}
+	.missions-pic {
+		display: none;
+	}
+	.visions p {
+		line-height: 25px;
+	}
+	.visions-pic {
+		display: none;
 	}
 }
 
