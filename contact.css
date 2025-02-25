@@ -1,0 +1,349 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* Nav 1  */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 10px 20px;
+	z-index: 99;
+	margin-top: 30px;
+}
+.nav-links {
+	display: flex;
+	gap: 20px;
+}
+.navbar-items {
+	text-decoration: none;
+	font-size: 25px;
+	color: white;
+	position: relative;
+	padding-bottom: 4px;
+}
+/* Underline Animation  */
+.navbar-items::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	background-color: white;
+	transition: width 0.3s ease-in-out;
+}
+/* Expand underline on hover */
+.navbar-items:hover::after {
+	width: 100%;
+}
+/* Active Page - Keeps underline visible */
+.navbar-items.active::after {
+	width: 100%;
+}
+
+/* Nav 2  */
+.navbar2 {
+	display: flex;
+	justify-content: space-between;
+	background-color: rgba(0, 0, 0, 0.7);
+	/* line-height: 45px; */
+	text-align: center;
+	position: relative;
+	position: fixed;
+	top: -70px;
+	width: 100%;
+	padding: 20px;
+	z-index: 99;
+	/* display: none; */
+	transition: all 1s ease-in-out;
+}
+
+/* Menu toggle (hamburger menu) */
+.menu-toggle {
+	display: none;
+	flex-direction: column;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+.bar {
+	width: 30px;
+	height: 4px;
+	background-color: white;
+	margin: 3px 0;
+	transition: all 0.5s ease-in-out;
+}
+/* When menu is active (X shape)  */
+.menu-toggle.active .bar:nth-child(1) {
+	transform: translateY(10px) rotate(45deg);
+}
+.menu-toggle.active .bar.bar:nth-child(2) {
+	opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+	transform: translateY(-10px) rotate(-45deg);
+}
+
+.logo {
+	font-size: 25px;
+	font-weight: bold;
+	/* z-index: 99; */
+}
+
+.cont {
+	height: 100vh;
+	padding-top: 10px;
+	/* width: 100vw; */
+	background-image: url(/images/gva1.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.contact-container {
+	background: rgba(0, 0, 0, 0.7);
+	padding: 20px;
+	/* padding-top: 30px; */
+	border-radius: 8px;
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+	width: 450px;
+	text-align: center;
+	display: block;
+	margin: auto;
+	margin-top: 95px;
+}
+.contact-container h2 {
+	margin-bottom: 20px;
+	color: white;
+	font-size: 30px;
+}
+
+input,
+textarea {
+	width: 100%;
+	padding: 17px;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	font-size: 16px;
+}
+textarea {
+	height: 100px;
+}
+.send-email {
+	width: 100%;
+	padding: 10px;
+	background-color: #28a745;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	position: relative;
+	font-size: 16px;
+}
+.send-email:hover {
+	background-color: #218838;
+}
+/* Loading Spinner */
+#loading-spinner {
+	width: 20px;
+	height: 20px;
+	border: 3px solid white;
+	border-top: 3px solid transparent;
+	border-radius: 50%;
+	display: none; /* Initially hidden */
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.error {
+	color: red;
+	font-size: 12px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+#status-message {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+@media only screen and (max-width: 670px) {
+	/* Hide nav links and move hamburger to left */
+	.nav-links {
+		display: flex; /* Hide menu by default */
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.8);
+		align-items: center;
+		justify-content: center;
+		color: white;
+		transform: translateY(-100%);
+		transition: transform 0.5s ease-in-out;
+	}
+	/* Show hamburger menu on the left */
+	.menu-toggle {
+		display: flex;
+		flex-direction: column;
+		cursor: pointer;
+		position: relative;
+		width: 35px;
+		height: 30px;
+		justify-content: center;
+		align-items: center;
+		z-index: 99;
+		color: white;
+	}
+	.logo {
+		z-index: 99;
+		color: white;
+	}
+	/* Show menu when active */
+	.nav-links.active {
+		display: flex;
+		transform: translateY(0);
+	}
+	/* Hide links initially  */
+	.navbar-items {
+		opacity: 0;
+		color: white;
+		transform: translateY(-20px);
+		transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+	}
+	/* Animate links one by one  */
+	.nav-links.active .navbar-items:nth-child(1) {
+		transition-delay: 0.2s;
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.nav-links.active .navbar-items:nth-child(2) {
+		transition-delay: 0.4s;
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.nav-links.active .navbar-items:nth-child(3) {
+		transition-delay: 0.6s;
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.nav-links.active .navbar-items:nth-child(4) {
+		transition-delay: 0.8s;
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.navbar-items::after {
+		background-color: white;
+	}
+	.bar {
+		background-color: white;
+	}
+}
+
+/* Footer  */
+.footer {
+	background-color: #222;
+	color: #fff;
+	padding: 40px 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.footer-container {
+	max-width: 1200px;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.footer-section {
+	flex: 1;
+	/* min-width: 250px; */
+	margin: 10px;
+}
+.footer-logo {
+	font-size: 34px;
+	font-weight: bold;
+}
+.footer p {
+	margin: 10px 0;
+	font-size: 14px;
+	color: #bbb;
+}
+.footer-links a {
+	display: block;
+	color: #bbb;
+	text-decoration: none;
+	font-size: 16px;
+	margin: 5px 0;
+	transition: 0.3s;
+}
+.footer-links a:hover {
+	color: #fff;
+}
+.social-icons a {
+	display: inline-block;
+	margin: 5px;
+	font-size: 18px;
+	color: #bbb;
+	text-decoration: none;
+	transition: 0.3s;
+}
+.social-icons a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+.newsletter input {
+	width: 80%;
+	padding: 8px;
+	margin-top: 10px;
+	border: none;
+	border-radius: 5px;
+}
+.newsletter button {
+	padding: 8px 12px;
+	margin-top: 5px;
+	background: #ff6600;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+}
+.newsletter button:hover {
+	background: #b64900;
+}
+.footer-bottom {
+	text-align: center;
+	padding: 10px;
+	font-size: 14px;
+	color: #bbb;
+	background-color: #111;
+}
+@media (max-width: 768px) {
+	.footer-container {
+		flex-direction: column;
+		text-align: center;
+	}
+	.newsletter input {
+		width: 100%;
+	}
+}
